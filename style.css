@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box; /* border box prevents any box to use extra space including border padding margin */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #545454;
+  display: flex; /*triggering flexbox model*/
+  font-family: sans-serif;
+  justify-content: center; /*use to distribute space between and around flex containers along main-axis*/
+}
+
+.container {
+  background: #14bdac;
+  /* width: 500px;
+  height: 500px; */
+  margin: 50px;
+  padding: 50px;
+  border-radius: 30px;
+}
+
+.game-grid {
+  display: grid; /*triggers css grid*/
+  grid-template-columns: repeat(3, 1fr);
+  /*3columns 1fr-- divide the whole area uniformly bw columns*/
+  grid-template-rows: repeat(3, 1fr); /*3rows*/
+  grid-gap: 15px;
+  background: #0da192;
+}
+
+.game-cell {
+  height: 110px;
+  width: 110px;
+  background: #14bdac;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.o::after {
+  /* CSS pseudoclass ::before/after.... to add o in the O cell*/
+  content: "○";
+  font-size: 130px;
+  color: #f2ebd3;
+}
+
+.reset {
+  cursor: pointer; /*cursor over Reset button becomes a pointer*/
+}
+
+.reset:hover {
+  color: #f2ebd3;
+}
+
+.status-container {
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+  margin: 25px;
+}
+
+.title {
+  text-align: center;
+}
+
+.title span {
+  color: #f2ebd3;
+}
+
+.won::after {
+  color: #bd022f;
+}
+
+.x::after {
+  /* CSS pseudoclass ::before/after.... to add x in the X cell*/
+  content: "×";
+  font-size: 140px;
+}
+
+.x,
+.o {
+  cursor: default;
+}
+
+@media only screen and (max-width: 1024px) {
+  .game-grid {
+    margin-top: 25px;
+    grid-gap: 10px;
+  }
+
+  .game-cell {
+    height: 150px;
+    width: 150px;
+  }
+
+  .x::after {
+    font-size: 150px;
+  }
+
+  .o::after {
+    font-size: 175px;
+  }
+}
+
+@media only screen and (max-width: 540px) {
+  .container {
+    margin: 25px;
+    padding: 25px;
+  }
+
+  .game-cell {
+    height: 100px;
+    width: 100px;
+  }
+
+  .x::after {
+    font-size: 100px;
+  }
+
+  .o::after {
+    font-size: 125px;
+  }
+}
